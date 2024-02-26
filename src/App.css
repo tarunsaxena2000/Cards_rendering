@@ -1,38 +1,110 @@
-.App {
+/* App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Heading {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.head {
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.main:hover {
+  transform: scale(1.05);
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info {
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.pri {
+  color: #e44d26;
+}
+
+.btn {
+  background-color: #e44d26;
+  padding: 10px;
+  text-align: center;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box; /* Added this line */
+}
+
+
+.btn-1 {
+  background-color: #e44d26;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-1:hover {
+  background-color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.description {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  color: #e44d26;
+  cursor: pointer;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState} from 'react';
+import data from './data'
+import Tour from './components/Tour'
 
 function App() {
+         
+   const [Data,setData]=useState(data);
+    function  btnHandler(id){
+          const newtours = Data.filter(d=> d.id !==id )
+          setData(newtours);
+    }
+
+
+     if(Data.length===0){
+         return (<>
+              <h1 className="HEAD">No Data Found</h1>     
+              <button  onClick={()=>setData(data)}>Refresh</button>   
+               </>)
+     }
+     
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Tour   data={Data}   btnHandler={ btnHandler}></Tour>
     </div>
   );
 }
